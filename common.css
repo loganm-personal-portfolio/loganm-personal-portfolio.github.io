@@ -199,10 +199,18 @@ p:last-child {
   border-radius: 50%;
   background: #fff;
   font-family: inherit;
-  font-size: 0.6875rem;
-  font-weight: 700;
   line-height: 1;
   cursor: pointer;
+}
+
+.btn-help__icon {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.btn-help__icon--close {
+  width: 0.85rem;
+  height: 0.85rem;
 }
 
 .btn-help.is-open {
@@ -243,8 +251,6 @@ p:last-child {
   padding: 0;
   border: none;
   background: transparent;
-  font-family: inherit;
-  font-size: 1.125rem;
   line-height: 1;
   color: #94a3b8;
   cursor: pointer;

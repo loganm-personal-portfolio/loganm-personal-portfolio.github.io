@@ -120,6 +120,10 @@ function initBtnHelp() {
     if (trigger) {
       trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
+    var tip = help.querySelector('.btn-help__tip');
+    if (tip) {
+      tip.hidden = !isOpen;
+    }
   }
 
   function closeAll(except) {
