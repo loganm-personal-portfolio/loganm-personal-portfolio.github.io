@@ -24,9 +24,7 @@
       <div class="container container--wide">
         <h1 data-scroll-reveal style="--reveal-delay: 0.05s">If you're tired of doing it by hand, let's talk.</h1>
         <p class="lead muted" data-scroll-reveal style="--reveal-delay: 0.14s">
-          I help businesses save time by automating repetitive tasks, connecting their tools, cleaning up messy data,
-          and building simple workflows that run in the background, so you don't have to
-          remember.
+          I help businesses save time by automating repetitive tasks, set up background automations, and building simple workflows for your team, so that your team can spend more time on what matters most.
         </p>
       </div>
     </section>
@@ -88,7 +86,7 @@
       <div class="container container--wide">
         <h2 data-scroll-reveal>Spreadsheet automations we could work through</h2>
         <p class="spreadsheet-section__intro muted" data-scroll-reveal style="--reveal-delay: 0.06s">
-          I build spreadsheet automations that keep running on their own — so the same export, reformat, or
+          I build spreadsheet automations that keep running on their own, so the same export, reformat, or
           copy-paste doesn't land back on your plate every week.
         </p>
 
@@ -108,10 +106,7 @@
       <div class="container container--wide">
         <h2 data-scroll-reveal>A little about me</h2>
         <p class="about-section__text" data-scroll-reveal style="--reveal-delay: 0.08s">
-          Before building automations, I worked in technical support, helping
-          people who weren't engineers figure out why something broke and how to fix it. I went on
-          to work as an engineer at a tech startup, where I built and maintained the kind
-          of behind-the-scenes systems that keep businesses running.
+            I started in technical support, spent a few years helping non-technical people figure out why things weren't working, then went to school for computer science and moved into an engineering role at a software startup where I built and maintained the automations and backend systems that kept things running.
         </p>
       </div>
     </section>
@@ -121,8 +116,22 @@
         <div class="cta-block" data-scroll-reveal>
           <h2>Let's figure it out together</h2>
           <p class="muted">Describe what you're doing manually. Most repetitive work is more solvable than you'd think.</p>
-          <a class="btn" href="mailto:logan.maupin.freelance@gmail.com">Email me</a>
-          <p class="contact-email"><a href="mailto:logan.maupin.freelance@gmail.com">logan.maupin.freelance@gmail.com</a></p>
+          <div class="btn-wrap">
+            <a class="btn" href="mailto:logan.maupin.freelance@gmail.com">Email me</a>
+            <div class="btn-help">
+              <button type="button" class="btn-help__trigger" aria-label="Show email address" aria-expanded="false">
+                <span aria-hidden="true">?</span>
+              </button>
+              <div class="btn-help__tip" role="tooltip">
+                <button type="button" class="btn-help__close" aria-label="Close">×</button>
+                Having trouble? Here's my address:
+                <span class="contact-email">logan.maupin.freelance@gmail.com</span>
+              </div>
+            </div>
+          </div>
+          <p class="contact-widget-restore" data-contact-restore hidden>
+            <button type="button" class="contact-widget-restore__btn" data-contact-restore-btn>Show floating contact button again</button>
+          </p>
         </div>
       </div>
     </section>
@@ -138,18 +147,38 @@
         </button>
       </div>
       <p class="contact-widget__text muted">Tell me what's eating your time. Chances are there's a fix.</p>
-      <a class="btn contact-widget__email" href="mailto:logan.maupin.freelance@gmail.com">Email me</a>
-      <p class="contact-email contact-email--widget"><a href="mailto:logan.maupin.freelance@gmail.com">logan.maupin.freelance@gmail.com</a></p>
+      <div class="btn-wrap btn-wrap--block">
+        <a class="btn contact-widget__email" href="mailto:logan.maupin.freelance@gmail.com">Email me</a>
+        <div class="btn-help">
+          <button type="button" class="btn-help__trigger" aria-label="Show email address" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+          </button>
+          <div class="btn-help__tip" role="tooltip">
+            <button type="button" class="btn-help__close" aria-label="Close">×</button>
+            Having trouble? Here's my address:
+            <span class="contact-email">logan.maupin.freelance@gmail.com</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="contact-widget__launcher">
-      <button type="button" class="contact-widget__toggle" data-contact-toggle aria-label="Open contact" aria-expanded="false" aria-controls="contact-widget-panel">
-        <svg class="contact-widget__icon contact-widget__icon--chat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-        <svg class="contact-widget__icon contact-widget__icon--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <button type="button" class="contact-widget__dismiss" data-contact-dismiss aria-label="Hide contact button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
+      <div class="contact-widget__toggle-wrap">
+        <button type="button" class="contact-widget__toggle" data-contact-toggle aria-label="Open contact" aria-expanded="false" aria-controls="contact-widget-panel">
+          <svg class="contact-widget__icon contact-widget__icon--chat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          <svg class="contact-widget__icon contact-widget__icon--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="btn-help btn-help--widget">
+          <button type="button" class="btn-help__trigger" aria-label="Widget options" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+          </button>
+          <div class="btn-help__tip" role="tooltip">
+            <button type="button" class="btn-help__close" aria-label="Close">×</button>
+            In the way? You can hide this contact button.
+            <button type="button" class="btn-help__action" data-contact-dismiss>Hide contact button</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

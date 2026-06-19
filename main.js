@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   initScrollReveal();
   initContactWidget();
+  initBtnHelp();
 });
 
 function initScrollReveal() {
@@ -44,13 +45,10 @@ function initContactWidget() {
   var panel = document.getElementById('contact-widget-panel');
   var toggle = widget.querySelector('[data-contact-toggle]');
   var panelClose = widget.querySelector('[data-contact-panel-close]');
-  var dismiss = widget.querySelector('[data-contact-dismiss]');
+  var dismissButtons = widget.querySelectorAll('[data-contact-dismiss]');
+  var restore = document.querySelector('[data-contact-restore]');
+  var restoreBtn = document.querySelector('[data-contact-restore-btn]');
   var storageKey = 'biz-contact-widget-dismissed';
-
-  if (localStorage.getItem(storageKey) === '1') {
-    widget.classList.add('is-dismissed');
-    return;
-  }
 
   function setOpen(isOpen) {
     widget.classList.toggle('is-open', isOpen);
@@ -58,6 +56,21 @@ function initContactWidget() {
     panel.hidden = !isOpen;
     panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
   }
+
+  function setDismissed(isDismissed) {
+    widget.classList.toggle('is-dismissed', isDismissed);
+    if (isDismissed) {
+      localStorage.setItem(storageKey, '1');
+      setOpen(false);
+    } else {
+      localStorage.removeItem(storageKey);
+    }
+    if (restore) {
+      restore.hidden = !isDismissed;
+    }
+  }
+
+  setDismissed(localStorage.getItem(storageKey) === '1');
 
   toggle.addEventListener('click', function () {
     setOpen(!widget.classList.contains('is-open'));
@@ -67,15 +80,91 @@ function initContactWidget() {
     setOpen(false);
   });
 
-  dismiss.addEventListener('click', function () {
-    setOpen(false);
-    widget.classList.add('is-dismissed');
-    localStorage.setItem(storageKey, '1');
+  dismissButtons.forEach(function (dismiss) {
+    dismiss.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setDismissed(true);
+      var widgetHelp = widget.querySelector('.btn-help--widget');
+      if (widgetHelp) {
+        widgetHelp.classList.remove('is-open');
+        var trigger = widgetHelp.querySelector('.btn-help__trigger');
+        if (trigger) {
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
   });
+
+  if (restoreBtn) {
+    restoreBtn.addEventListener('click', function () {
+      setDismissed(false);
+    });
+  }
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && widget.classList.contains('is-open')) {
       setOpen(false);
+    }
+  });
+}
+
+function initBtnHelp() {
+  var helpWidgets = document.querySelectorAll('.btn-help');
+  if (!helpWidgets.length) {
+    return;
+  }
+
+  function setOpen(help, isOpen) {
+    help.classList.toggle('is-open', isOpen);
+    var trigger = help.querySelector('.btn-help__trigger');
+    if (trigger) {
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+  }
+
+  function closeAll(except) {
+    helpWidgets.forEach(function (help) {
+      if (help !== except) {
+        setOpen(help, false);
+      }
+    });
+  }
+
+  helpWidgets.forEach(function (help) {
+    var trigger = help.querySelector('.btn-help__trigger');
+    var closeBtn = help.querySelector('.btn-help__close');
+    var tip = help.querySelector('.btn-help__tip');
+
+    if (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = help.classList.contains('is-open');
+        closeAll(help);
+        setOpen(help, !isOpen);
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setOpen(help, false);
+      });
+    }
+
+    if (tip) {
+      tip.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+    }
+  });
+
+  document.addEventListener('click', function () {
+    closeAll();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeAll();
     }
   });
 }

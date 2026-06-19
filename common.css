@@ -164,6 +164,127 @@ p:last-child {
   transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+.btn-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-wrap--block {
+  display: block;
+  width: 100%;
+}
+
+.btn-wrap--block .btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn-help {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  z-index: 1;
+}
+
+.btn-help__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 0;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: #fff;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.btn-help.is-open {
+  z-index: 2;
+}
+
+.btn-help__tip {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.5rem);
+  width: max-content;
+  max-width: 15rem;
+  padding: 0.65rem 1.75rem 0.65rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  color: #334155;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.btn-help__close {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.btn-help__close:hover {
+  color: #334155;
+}
+
+.btn-help__tip .contact-email {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.btn-help__action {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  color: inherit;
+  text-align: left;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-help__action:hover {
+  color: #0f172a;
+}
+
+.btn-help.is-open .btn-help__tip {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 .cta-block {
   padding: 2.25rem 1.75rem;
   border-radius: 1rem;
@@ -174,7 +295,7 @@ p:last-child {
   margin-bottom: 0.75rem;
 }
 
-.cta-block .btn {
+.cta-block .btn-wrap {
   margin-top: 1.25rem;
 }
 
