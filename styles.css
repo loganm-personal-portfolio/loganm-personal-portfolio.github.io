@@ -1,11 +1,11 @@
 /* ── Small-biz page (index.html) ─────────────────────────── */
 
 :root {
-  --biz-bg: #f3f0f5;
+  --biz-bg: #fafbfc;
   --biz-surface: rgba(255, 255, 255, 0.78);
   --biz-surface-solid: #ffffff;
   --biz-text: #1a1625;
-  --biz-muted: #5c5670;
+  --biz-muted: #484354;
   --biz-accent: #5eb0e8;
   --biz-accent-hover: #4499d4;
   --biz-accent-soft: rgba(94, 176, 232, 0.18);
@@ -16,7 +16,16 @@
 }
 
 .page-biz {
-  background: var(--biz-bg);
+  background-color: var(--biz-bg);
+  /* Pastel diagonal gradient — integrations-card blue top-left */
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in srgb, #60a5fa 30%, #fbfbfc) 0%,
+    #fbfbfc 38%,
+    #fbfbfc 62%,
+    hsl(315 40% 93.5%) 100%
+  );
+  background-attachment: fixed;
   color: var(--biz-text);
   position: relative;
   overflow-x: hidden;
@@ -57,32 +66,6 @@
 
 .page-biz .hero {
   padding-top: clamp(3.5rem, 12vh, 5.5rem);
-}
-
-/* ── Page backdrop ────────────────────────────────────────── */
-
-.page-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.page-backdrop__image {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.page-backdrop__scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.18) 38%, rgba(255, 255, 255, 0.28) 100%),
-    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
 }
 
 /* ── Scroll reveal ────────────────────────────────────────── */
