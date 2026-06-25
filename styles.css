@@ -242,15 +242,23 @@
 
 /* ── Spreadsheet section ──────────────────────────────────── */
 
-.spreadsheet-section h2 {
-  margin-bottom: 1.25rem;
+.headache-panel__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
-.spreadsheet-section__intro {
+.headache-panel__intro {
+  margin: 0 0 1.25rem;
   max-width: 52rem;
-  margin-bottom: 1.5rem;
   font-size: 1.0125rem;
   line-height: 1.65;
+}
+
+.headache-panel__label {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--biz-text);
 }
 
 .headache-panel {
@@ -268,6 +276,7 @@
   padding: 0;
   margin: 0;
   display: grid;
+  grid-template-columns: 1fr;
   gap: 0.875rem;
 }
 
